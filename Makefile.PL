@@ -7,7 +7,7 @@ WriteMakefile(
     VERSION_FROM      => 'lib/AnyEvent/Serialize.pm', # finds $VERSION
     PREREQ_PM         => {
     	
-        'Data::StreamSerializer'        => 0,
+        'Data::StreamSerializer'        => '0.05',
         'Data::StreamDeserializer'      => 0,
         'AnyEvent'                      => 0,
     }, # e.g., Module::Name => 1.1

@@ -4,3 +4,5 @@ Revision history for Perl extension AnyEvent::Serialize.
 	- original version; created by h2xs 1.23 with options
 		-n AnyEvent::Serialize
 
+0.02  Thu Feb 10 09:08:45 MSK 2011
+	- add version depend on StreamSerializer
