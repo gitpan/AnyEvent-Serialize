@@ -9,8 +9,9 @@ local $Data::Dumper::Terse    = 1;
 local $Data::Dumper::Useqq    = 1;
 local $Data::Dumper::Deepcopy = 1;
 
-use Test::More tests => 53;
+use Test::More tests => 54;
 BEGIN {
+    use_ok 'AnyEvent';
     use_ok('AnyEvent::Serialize', ':all', 'block_size' => 10);
 };
 

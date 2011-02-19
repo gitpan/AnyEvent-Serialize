@@ -10,6 +10,7 @@ WriteMakefile(
         'Data::StreamSerializer'        => '0.05',
         'Data::StreamDeserializer'      => 0,
         'AnyEvent'                      => 0,
+        'AnyEvent::AggressiveIdle'      => '0.01',
     }, # e.g., Module::Name => 1.1
     ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM  => 'lib/AnyEvent/Serialize.pm', # retrieve abstract from module

@@ -7,7 +7,8 @@ use Carp;
 
 require Exporter;
 
-use AnyEvent;
+use AnyEvent::AggressiveIdle qw(aggressive_idle stop_aggressive_idle);
+
 
 our @ISA = qw(Exporter);
 
@@ -24,7 +25,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw();
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 our $block_size = 1024;
@@ -65,16 +66,17 @@ sub serialize($&) {
             return;
         }
 
-        my $idle;
-        $idle = AE::idle sub {
+        aggressive_idle {
+            my $pid = shift;
             my $part = $sr->next;
             $str .= $part if defined $part;
             if ($sr->is_eof) {
-                undef $idle;
+                stop_aggressive_idle $pid;
                 $cb->($str, $sr->recursion_detected);
-                return;
             }
         };
+
+        return;
     };
 
     goto &serialize;
@@ -95,10 +97,10 @@ sub deserialize($&) {
             return;
         }
 
-        my $idle;
-        $idle = AE::idle sub {
+        aggressive_idle {
+            my $pid = shift;
             return unless $dsr->next;
-            undef $idle;
+            stop_aggressive_idle($pid);
             $cb->($dsr->result('first'), $dsr->error, $dsr->tail);
         };
     };

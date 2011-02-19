@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               AnyEvent-Serialize
-version:            0.02
+version:            0.03
 abstract:           async serialize/deserialize function
 author:
     - Dmitry E. Oboukhov <unera@debian.org>
@@ -12,6 +12,7 @@ build_requires:
     ExtUtils::MakeMaker:  0
 requires:
     AnyEvent:             0
+    AnyEvent::AggressiveIdle:  0.01
     Data::StreamDeserializer:  0
     Data::StreamSerializer:  0.05
 no_index:
