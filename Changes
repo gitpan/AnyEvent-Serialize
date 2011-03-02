@@ -6,3 +6,6 @@ Revision history for Perl extension AnyEvent::Serialize.
 
 0.02  Thu Feb 10 09:08:45 MSK 2011
 	- add version depend on StreamSerializer
+
+0.04  Wed Mar  2 14:35:04 MSK 2011
+	- use aggressive_idle

@@ -1,9 +1,9 @@
-libanyevent-serialize-perl (0.03-1) unstable; urgency=low
+libanyevent-serialize-perl (0.04-1) unstable; urgency=low
 
   * use aggressive_idle instead AE::idle.
   * New upstream version.
 
- -- Dmitry E. Oboukhov <unera@debian.org>  Sat, 19 Feb 2011 16:50:05 +0300
+ -- Dmitry E. Oboukhov <unera@debian.org>  Wed, 02 Mar 2011 14:34:44 +0300
 
 libanyevent-serialize-perl (0.02-1) unstable; urgency=low
 

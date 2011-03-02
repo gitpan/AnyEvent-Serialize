@@ -5,13 +5,15 @@ Maintainer: Dmitry E. Oboukhov <unera@debian.org>
 VCS-Browser: http://git.uvw.ru/?p=anyevent-serialize;a=summary
 Build-Depends: libanyevent-perl,
     libdata-streamdeserializer-perl,
-    libdata-streamdeserializer-perl
+    libdata-streamserializer-perl,
+    libanyevent-aggressiveidle-perl
 
 Package: libanyevent-serialize-perl
 Depends: ${perl:Depends}, ${misc:Depends},
     libanyevent-perl,
     libdata-streamdeserializer-perl,
-    libdata-streamdeserializer-perl
+    libdata-streamserializer-perl,
+    libanyevent-aggressiveidle-perl
 Architecture: all
 Description: serializer and deserializer for AnyEvent
  The package provides a few non-blocking methods to serialize and

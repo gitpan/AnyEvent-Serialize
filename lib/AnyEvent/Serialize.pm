@@ -25,7 +25,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw();
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 
 our $block_size = 1024;
@@ -75,8 +75,6 @@ sub serialize($&) {
                 $cb->($str, $sr->recursion_detected);
             }
         };
-
-        return;
     };
 
     goto &serialize;
@@ -167,6 +165,13 @@ arguments:
 =item undeserialized string tail
 
 =back
+
+
+=head1 BREAKING
+
+You can break serialization/deserialization process if You save value that
+is returned by functions L<serialize>/L<deserialize>. They return guards
+if they are called in non-void context.
 
 =head1 SEE ALSO
 
