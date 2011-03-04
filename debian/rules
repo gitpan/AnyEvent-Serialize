@@ -1,7 +1,6 @@
 #!/usr/bin/make -f
 
 include /usr/share/cdbs/1/rules/debhelper.mk
-# include /usr/share/cdbs/1/class/perlmodule.mk
 include /usr/share/cdbs/1/class/perl-makemaker.mk
 
 MAIN_MODULE	= lib/AnyEvent/Serialize.pm
@@ -11,11 +10,20 @@ DEBVERSION = $(shell dpkg-parsechangelog \
 PERVERSION = $(shell grep '^our[[:space:]]\+\$$VERSION' $(MAIN_MODULE) \
 	|awk '{print $$4}'|sed "s/[';']//g" )
 
-install/libanyevent-tools-perl::
+install/libanyevent-serialize-perl::
 	@set -e; \
 	if ! test "x$(DEBVERSION)" = "x$(PERVERSION)"; then \
 		echo "Error: changelog has version $(DEBVERSION) " \
 			"but module has $(PERVERSION)"; \
 		false; \
 	fi
-	
+
+clean::
+	rm -fr Makefile.old
+
+
+tarball: clean
+	rm -f AnyEvent-Serialize-*
+	cd .. && tar --exclude=.git --exclude=debian -czvf \
+                libanyevent-serialize-perl_$(DEBVERSION).orig.tar.gz \
+                libanyevent-serialize-perl-$(DEBVERSION)

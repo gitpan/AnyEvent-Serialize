@@ -8,7 +8,7 @@ WriteMakefile(
     PREREQ_PM         => {
     	
         'Data::StreamSerializer'        => '0.05',
-        'Data::StreamDeserializer'      => 0,
+        'Data::StreamDeserializer'      => '0.04',
         'AnyEvent'                      => 0,
         'AnyEvent::AggressiveIdle'      => '0.01',
     }, # e.g., Module::Name => 1.1

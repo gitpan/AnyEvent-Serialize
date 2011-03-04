@@ -9,3 +9,6 @@ Revision history for Perl extension AnyEvent::Serialize.
 
 0.04  Wed Mar  2 14:35:04 MSK 2011
 	- use aggressive_idle
+
+0.05  Fri Mar  4 09:10:41 MSK 2011
+	- fixed depend version (by CPAN Testers Daily Summary Report).
